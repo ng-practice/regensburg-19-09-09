@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book } from './book';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class BookDataService {
   constructor(private http: HttpClient) {}
 

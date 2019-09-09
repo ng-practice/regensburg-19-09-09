@@ -3,6 +3,7 @@ import { emptyBook } from './book-empty';
 
 describe('When an empty book is created', () => {
   let book: Book;
+
   beforeEach(() => {
     book = emptyBook();
   });
