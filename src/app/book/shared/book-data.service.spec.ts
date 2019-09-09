@@ -35,4 +35,24 @@ describe('[HTTP] book-data', () => {
       ]);
     });
   });
+
+  describe('When books can not be loaded', () => {
+    it('produces an error', done => {
+      service.getBooks().subscribe({
+        error: err => {
+          expect(err.message).toBe(
+            'Sorry, Books could not be loaded. Please call emergency 🚑.'
+          );
+          done();
+        }
+      });
+
+      httpMock
+        .expectOne('http://localhost:4730/books')
+        .flush('Invalid parameters', {
+          status: 400,
+          statusText: 'Bad Request'
+        });
+    });
+  });
 });
