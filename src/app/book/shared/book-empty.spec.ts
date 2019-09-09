@@ -1,8 +1,13 @@
+import { Book } from './book';
 import { emptyBook } from './book-empty';
 
 describe('When an empty book is created', () => {
+  let book: Book;
+  beforeEach(() => {
+    book = emptyBook();
+  });
+
   it('has no title', () => {
-    const book = emptyBook();
     expect(book.title).toBe('');
   });
 
