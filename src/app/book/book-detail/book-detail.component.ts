@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { filter, switchMap } from 'rxjs/operators';
 import { Book } from '../shared/book';
 import { BookDataService } from '../shared/book-data.service';
 
@@ -16,13 +16,12 @@ export class BookDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private bookService: BookDataService
-  ) {}
-
-  ngOnInit() {
+  ) {
     this.book$ = this.route.params.pipe(
-      switchMap((params: { isbn: string }) =>
-        this.bookService.getBookByIsbn(params.isbn)
-      )
+      filter(params => !!params.isbn),
+      switchMap(params => this.bookService.getBookByIsbn(params.isbn))
     );
   }
+
+  ngOnInit() {}
 }
