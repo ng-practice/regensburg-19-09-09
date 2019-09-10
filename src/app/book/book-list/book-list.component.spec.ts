@@ -3,27 +3,29 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
+import { instance, mock, when } from 'ts-mockito';
 import { BookDataService } from '../shared/book-data.service';
+import { emptyBook } from '../shared/book-empty';
 import { BookListComponent } from './book-list.component';
 
 describe('<book-list>', () => {
   let fixture: ComponentFixture<BookListComponent>;
+  let serviceMock: BookDataService;
 
   beforeEach(() => {
+    serviceMock = mock(BookDataService);
+
+    when(serviceMock.getBooks()).thenReturn(
+      of([emptyBook(), emptyBook(), emptyBook()])
+    );
+
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [BookListComponent],
       providers: [
         {
           provide: BookDataService,
-          useValue: {
-            getBooks: () =>
-              of([
-                { title: 'Willpower Instinct' },
-                { title: 'Start with Why' },
-                { title: 'Die schönsten Gutenachtgeschichten' }
-              ])
-          }
+          useFactory: () => instance(serviceMock)
         }
       ],
       schemas: [NO_ERRORS_SCHEMA]
