@@ -1,0 +1,297 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<book-edit> When no author is set shows a validation message 1`] = `
+<ws-book-edit
+  book={[Function Object]}
+  bookService={[Function BookStaticAsyncDataService]}
+  route={[Function ActivatedRoute]}
+  sink={[Function Subscription]}
+>
+  <h2
+    class="mat-h2"
+  >
+    Edit
+  </h2><form
+    class="book-edit__form ng-star-inserted ng-touched ng-dirty ng-invalid"
+    novalidate=""
+  >
+    <mat-form-field
+      class="mat-form-field ng-tns-c0-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid _mat-animation-noopable mat-form-field-should-float"
+    >
+      <div
+        class="mat-form-field-wrapper"
+      >
+        <div
+          class="mat-form-field-flex"
+        >
+          
+          
+          <div
+            class="mat-form-field-infix"
+          >
+            <input
+              aria-invalid="false"
+              aria-required="false"
+              class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid"
+              id="mat-input-0"
+              matinput=""
+              name="isbn"
+              ng-reflect-model="978-0-20163-361-0"
+              ng-reflect-name="isbn"
+              ng-reflect-placeholder="ISBN"
+              ng-reflect-readonly=""
+              placeholder="ISBN"
+              readonly="true"
+            />
+            <span
+              class="mat-form-field-label-wrapper"
+            >
+              
+              <label
+                aria-owns="mat-input-0"
+                class="mat-form-field-label ng-tns-c0-0 ng-star-inserted"
+                for="mat-input-0"
+                id="mat-form-field-label-1"
+                ng-reflect-disabled="true"
+                ng-reflect-ng-switch="false"
+              >
+                
+                
+                <span
+                  class="ng-tns-c0-0 ng-star-inserted"
+                >
+                  ISBN
+                </span>
+                
+                
+              </label>
+            </span>
+          </div>
+          
+        </div>
+        
+        <div
+          class="mat-form-field-underline ng-tns-c0-0 ng-star-inserted"
+        >
+          <span
+            class="mat-form-field-ripple"
+          />
+        </div>
+        <div
+          class="mat-form-field-subscript-wrapper"
+          ng-reflect-ng-switch="hint"
+        >
+          
+          
+          <div
+            class="mat-form-field-hint-wrapper ng-tns-c0-0 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
+            style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
+          >
+            
+            <div
+              class="mat-form-field-hint-spacer"
+            />
+          </div>
+        </div>
+      </div>
+    </mat-form-field>
+    <mat-form-field
+      class="mat-form-field ng-tns-c0-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid _mat-animation-noopable mat-form-field-should-float"
+    >
+      <div
+        class="mat-form-field-wrapper"
+      >
+        <div
+          class="mat-form-field-flex"
+        >
+          
+          
+          <div
+            class="mat-form-field-infix"
+          >
+            <input
+              aria-invalid="false"
+              aria-required="true"
+              class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid"
+              id="mat-input-1"
+              matinput=""
+              name="title"
+              ng-reflect-model="Design Patterns"
+              ng-reflect-name="title"
+              ng-reflect-placeholder="Title"
+              ng-reflect-required=""
+              placeholder="Title"
+              required=""
+            />
+            <span
+              class="mat-form-field-label-wrapper"
+            >
+              
+              <label
+                aria-owns="mat-input-1"
+                class="mat-form-field-label ng-tns-c0-1 ng-star-inserted"
+                for="mat-input-1"
+                id="mat-form-field-label-3"
+                ng-reflect-disabled="true"
+                ng-reflect-ng-switch="false"
+              >
+                
+                
+                <span
+                  class="ng-tns-c0-1 ng-star-inserted"
+                >
+                  Title
+                </span>
+                
+                
+                <span
+                  aria-hidden="true"
+                  class="mat-placeholder-required mat-form-field-required-marker ng-tns-c0-1 ng-star-inserted"
+                >
+                   *
+                </span>
+              </label>
+            </span>
+          </div>
+          
+        </div>
+        
+        <div
+          class="mat-form-field-underline ng-tns-c0-1 ng-star-inserted"
+        >
+          <span
+            class="mat-form-field-ripple"
+          />
+        </div>
+        <div
+          class="mat-form-field-subscript-wrapper"
+          ng-reflect-ng-switch="hint"
+        >
+          
+          
+          <div
+            class="mat-form-field-hint-wrapper ng-tns-c0-1 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
+            style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
+          >
+            
+            <div
+              class="mat-form-field-hint-spacer"
+            />
+          </div>
+        </div>
+      </div>
+    </mat-form-field>
+    <mat-form-field
+      class="mat-form-field ng-tns-c0-2 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder _mat-animation-noopable mat-form-field-invalid ng-touched ng-dirty ng-invalid"
+    >
+      <div
+        class="mat-form-field-wrapper"
+      >
+        <div
+          class="mat-form-field-flex"
+        >
+          
+          
+          <div
+            class="mat-form-field-infix"
+          >
+            <input
+              aria-describedby="mat-error-0"
+              aria-invalid="true"
+              aria-required="true"
+              class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-touched ng-dirty ng-invalid"
+              id="mat-input-2"
+              matinput=""
+              name="author"
+              ng-reflect-model=""
+              ng-reflect-name="author"
+              ng-reflect-placeholder="Author"
+              ng-reflect-required=""
+              placeholder="Author"
+              required=""
+            />
+            <span
+              class="mat-form-field-label-wrapper"
+            >
+              
+              <label
+                aria-owns="mat-input-2"
+                class="mat-form-field-label ng-tns-c0-2 mat-empty mat-form-field-empty ng-star-inserted"
+                for="mat-input-2"
+                id="mat-form-field-label-5"
+                ng-reflect-disabled="true"
+                ng-reflect-ng-switch="false"
+              >
+                
+                
+                <span
+                  class="ng-tns-c0-2 ng-star-inserted"
+                >
+                  Author
+                </span>
+                
+                
+                <span
+                  aria-hidden="true"
+                  class="mat-placeholder-required mat-form-field-required-marker ng-tns-c0-2 ng-star-inserted"
+                >
+                   *
+                </span>
+              </label>
+            </span>
+          </div>
+          
+        </div>
+        
+        <div
+          class="mat-form-field-underline ng-tns-c0-2 ng-star-inserted"
+        >
+          <span
+            class="mat-form-field-ripple"
+          />
+        </div>
+        <div
+          class="mat-form-field-subscript-wrapper"
+          ng-reflect-ng-switch="error"
+        >
+          
+          <div
+            class="ng-tns-c0-2 ng-trigger ng-trigger-transitionMessages ng-star-inserted ng-animating"
+            style=""
+          >
+            
+            <mat-error
+              class="author-validation-message mat-error ng-star-inserted"
+              id="mat-error-0"
+              role="alert"
+              style=""
+            >
+              Author is required.
+            </mat-error>
+          </div>
+          
+        </div>
+      </div>
+    </mat-form-field>
+    <div
+      class="book-actions"
+    >
+      <button
+        mat-button=""
+        ng-reflect-router-link="/books,978-0-20163-361-0"
+        tabindex="0"
+      >
+         Cancel 
+      </button>
+      <button
+        color="primary"
+        disabled=""
+        mat-raised-button=""
+        type="submit"
+      >
+         Save 
+      </button>
+    </div>
+  </form>
+</ws-book-edit>
+`;

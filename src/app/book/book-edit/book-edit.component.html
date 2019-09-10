@@ -25,10 +25,12 @@
         [(ngModel)]="book.author"
         name="author"
         placeholder="Author"
-        #author
+        #author="ngModel"
         required
       />
-      <mat-error *ngIf="author.errors">Author is required</mat-error>
+      <mat-error class="author-validation-message" *ngIf="author.errors"
+        >Author is required.</mat-error
+      >
     </mat-form-field>
 
     <div class="book-actions">
