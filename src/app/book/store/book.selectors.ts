@@ -12,5 +12,5 @@ export const allBooks = createSelector(
 export const currentBook = createSelector(
   allBooks,
   selectRouteParam('isbn'),
-  (books, isbn) => books.find(book => book.isbn === isbn)
+  (books, isbn) => books.find(book => book.isbn.toString() === isbn)
 );
