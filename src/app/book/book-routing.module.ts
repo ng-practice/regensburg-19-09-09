@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { BookComponent } from './book.component';
-import { BookListComponent } from './book-list/book-list.component';
+import { RouterModule, Routes } from '@angular/router';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookEditComponent } from './book-edit/book-edit.component';
+import { BookListComponent } from './book-list/book-list.component';
 import { BookNewComponent } from './book-new/book-new.component';
+import { BookComponent } from './book.component';
+import { ConfirmCandeactivateGuard } from './shared/confirm-candeactivate.guard';
+import { FormDeactivationGuard } from './shared/form-deactivation.guard';
 
 export const routes: Routes = [
   {
@@ -17,11 +19,13 @@ export const routes: Routes = [
       },
       {
         path: 'new',
-        component: BookNewComponent
+        component: BookNewComponent,
+        canDeactivate: [FormDeactivationGuard]
       },
       {
         path: ':isbn',
-        component: BookDetailComponent
+        component: BookDetailComponent,
+        canDeactivate: [ConfirmCandeactivateGuard]
       },
       {
         path: ':isbn/edit',
@@ -33,6 +37,7 @@ export const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [ConfirmCandeactivateGuard, FormDeactivationGuard]
 })
 export class BookRoutingModule {}
