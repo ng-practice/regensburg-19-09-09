@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { exhaustMap, map, switchMap } from 'rxjs/operators';
+import { exhaustMap, map, switchMap, tap } from 'rxjs/operators';
 import { BookDataService } from '../shared/book-data.service';
 import {
   createBook,
@@ -27,8 +28,18 @@ export class BookEffects {
     )
   );
 
+  navigateToListOnSuccess$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(createBookSuccess),
+        tap(() => this.router.navigateByUrl('/books'))
+      ),
+    { dispatch: false }
+  );
+
   constructor(
     private actions$: Actions,
-    private bookService: BookDataService
+    private bookService: BookDataService,
+    private router: Router
   ) {}
 }

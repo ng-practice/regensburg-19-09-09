@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { Book } from '../shared/book';
 import { emptyBook } from '../shared/book-empty';
 import { BookFeature, createBook } from '../store';
 
@@ -30,7 +31,7 @@ export class BookNewComponent implements OnInit {
   }
 
   create() {
-    const book = { ...emptyBook(), ...this.form.value };
+    const book: Book = { ...emptyBook(), ...this.form.value };
     this.store.dispatch(createBook({ payload: book }));
   }
 }
