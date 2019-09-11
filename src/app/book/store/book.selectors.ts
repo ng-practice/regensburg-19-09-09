@@ -6,7 +6,7 @@ const bookFeature = createFeatureSelector<BookSlices>('book');
 
 export const allBooks = createSelector(
   bookFeature,
-  f => f.list.books
+  f => Object.values(f.list.entities)
 );
 
 export const currentBook = createSelector(
