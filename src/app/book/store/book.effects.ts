@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, switchMap } from 'rxjs/operators';
+import { exhaustMap, map, switchMap } from 'rxjs/operators';
 import { BookDataService } from '../shared/book-data.service';
-import { loadAllBooks, loadAllBooksSuccess } from './book.actions';
+import {
+  createBook,
+  createBookSuccess,
+  loadAllBooks,
+  loadAllBooksSuccess
+} from './book.actions';
 
 @Injectable()
 export class BookEffects {
@@ -11,6 +16,14 @@ export class BookEffects {
       ofType(loadAllBooks),
       switchMap(() => this.bookService.getBooks()),
       map(books => loadAllBooksSuccess({ payload: books }))
+    )
+  );
+
+  createBook$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(createBook),
+      exhaustMap(({ payload }) => this.bookService.createBook(payload)),
+      map(books => createBookSuccess({ payload: books }))
     )
   );
 

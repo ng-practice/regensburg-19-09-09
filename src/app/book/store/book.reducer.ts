@@ -7,7 +7,7 @@
  */
 import { createReducer, on } from '@ngrx/store';
 import { Book } from '../shared/book';
-import { loadAllBooksSuccess } from './book.actions';
+import { createBookSuccess, loadAllBooksSuccess } from './book.actions';
 
 export interface BookSlice {
   books: Book[];
@@ -21,5 +21,9 @@ export const bookReducer = createReducer(
     const nextState = { ...state };
     nextState.books = action.payload;
     return nextState;
-  })
+  }),
+  on(createBookSuccess, (state, { payload }) => ({
+    ...state,
+    books: [...state.books, payload]
+  }))
 );

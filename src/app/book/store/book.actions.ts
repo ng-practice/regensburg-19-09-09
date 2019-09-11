@@ -14,3 +14,14 @@ export const loadAllBooksSuccess = createAction(
   '[Book] Loading all books was successful',
   props<{ payload: Book[] }>()
 );
+
+// store.dispatch(createBook({ payload: book }))
+export const createBook = createAction(
+  '[Book] Create new book',
+  props<{ payload: Book }>()
+);
+
+export const createBookSuccess = createAction(
+  '[Book] Successfully created new Book',
+  props<{ payload: Book }>()
+);
