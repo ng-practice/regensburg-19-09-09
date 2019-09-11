@@ -1,16 +1,21 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { BookSlices } from '.';
 import { selectRouteParam } from '../../reducers';
+import { adapter } from './book.reducer';
 
 const bookFeature = createFeatureSelector<BookSlices>('book');
-
-export const allBooks = createSelector(
+const bookSlices = createSelector(
   bookFeature,
-  f => Object.values(f.list.entities)
+  f => f.list
 );
 
+// export adapter from reducer.ts
+const selectors = adapter.getSelectors(bookSlices);
+
+export const allBooks = selectors.selectAll;
+
 export const currentBook = createSelector(
-  allBooks,
+  selectors.selectAll,
   selectRouteParam('isbn'),
   (books, isbn) => books.find(book => book.isbn.toString() === isbn)
 );

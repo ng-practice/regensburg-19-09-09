@@ -10,10 +10,9 @@ import { createReducer, on } from '@ngrx/store';
 import { Book } from '../shared/book';
 import { createBookSuccess, loadAllBooksSuccess } from './book.actions';
 
-export interface BookSlice extends EntityState<Book> {
-  // books: Book[];
-}
-const adapter = createEntityAdapter<Book>({
+export interface BookSlice extends EntityState<Book> {}
+
+export const adapter = createEntityAdapter<Book>({
   selectId: book => book.isbn
 });
 
