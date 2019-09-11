@@ -15,7 +15,7 @@ const selectors = adapter.getSelectors(bookSlices);
 export const allBooks = selectors.selectAll;
 
 export const currentBook = createSelector(
-  selectors.selectAll,
+  selectors.selectEntities,
   selectRouteParam('isbn'),
-  (books, isbn) => books.find(book => book.isbn.toString() === isbn)
+  (books, isbn) => books[isbn]
 );
