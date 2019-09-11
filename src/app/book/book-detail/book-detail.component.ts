@@ -1,27 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { filter, switchMap } from 'rxjs/operators';
 import { Book } from '../shared/book';
-import { BookDataService } from '../shared/book-data.service';
+import { BookFeature } from '../store';
+import { currentBook } from '../store/book.selectors';
 
 @Component({
   selector: 'ws-book-detail',
   styleUrls: ['./book-detail.component.scss'],
   templateUrl: 'book-detail.component.html'
 })
-export class BookDetailComponent implements OnInit {
+export class BookDetailComponent {
   public book$: Observable<Book>;
 
-  constructor(
-    private route: ActivatedRoute,
-    private bookService: BookDataService
-  ) {
-    this.book$ = this.route.params.pipe(
-      filter(params => !!params.isbn),
-      switchMap(params => this.bookService.getBookByIsbn(params.isbn))
-    );
+  constructor(private store: Store<BookFeature>) {
+    this.book$ = this.store.pipe(select(currentBook));
   }
-
-  ngOnInit() {}
 }

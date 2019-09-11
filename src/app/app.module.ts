@@ -10,13 +10,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
+import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
-import { metaReducers, reducers } from './reducers';
+import { metaReducers, ROOT_REDUCERS } from './reducers';
 
 @NgModule({
   declarations: [AppComponent, MainNavigationComponent],
@@ -32,7 +33,7 @@ import { metaReducers, reducers } from './reducers';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    StoreModule.forRoot(reducers, {
+    StoreModule.forRoot(ROOT_REDUCERS, {
       metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
@@ -45,7 +46,10 @@ import { metaReducers, reducers } from './reducers';
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot({
+      routerState: RouterState.Minimal
+    })
   ],
   bootstrap: [AppComponent]
 })
