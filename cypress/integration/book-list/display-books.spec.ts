@@ -1,5 +1,10 @@
 describe('When the start pages is opened', () => {
   beforeEach(() => {
+    cy.server();
+
+    cy.route('GET', 'http://localhost:4730/books', 'fixture:books.json');
+    cy.route('POST', 'http://localhost:4730/books', 'fixture:book.json');
+
     cy.visit('http://localhost:4200');
     cy.get('[data-testid=book-item]').as('books');
   });
@@ -20,9 +25,10 @@ describe('When the start pages is opened', () => {
       cy.get('@books').then(books => expect(books.length).to.eq(count + 1));
     });
 
-    afterEach(() =>
-      cy.request('DELETE', `http://localhost:4730/books/${isbn}`)
-    );
+    // Not needed anymore since we are using a mock backend
+    // afterEach(() =>
+    //   cy.request('DELETE', `http://localhost:4730/books/${isbn}`)
+    // );
   });
 
   it('shows the heading containing "Book Monkey"', () => {
