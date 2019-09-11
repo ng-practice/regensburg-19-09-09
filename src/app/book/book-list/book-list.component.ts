@@ -3,6 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Book } from '../shared/book';
 import { BookFeature } from '../store';
+import { allBooks } from '../store/book.selectors';
 
 @Component({
   selector: 'ws-book-list',
@@ -15,6 +16,6 @@ export class BookListComponent implements OnInit {
   constructor(private store: Store<BookFeature>) {}
 
   ngOnInit() {
-    this.books$ = this.store.pipe(select(s => s.book.list.books));
+    this.books$ = this.store.pipe(select(allBooks));
   }
 }

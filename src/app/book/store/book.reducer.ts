@@ -17,13 +17,12 @@ const initialState: BookSlice = { books: [] };
 
 export const bookReducer = createReducer(
   initialState,
-  on(loadAllBooksSuccess, (state, action) => {
-    const nextState = { ...state };
-    nextState.books = action.payload;
-    return nextState;
-  }),
-  on(createBookSuccess, (state, { payload }) => ({
-    ...state,
-    books: [...state.books, payload]
+  on(loadAllBooksSuccess, (slice, { payload }) => ({
+    ...slice,
+    books: payload
+  })),
+  on(createBookSuccess, (slice, { payload }) => ({
+    ...slice,
+    books: [...slice.books, payload]
   }))
 );
